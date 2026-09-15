@@ -66,7 +66,7 @@ This tool runs entirely client-side in your web browser. **No images, files or p
 - Prepare documents for printing and sharing
 
 ### Powered by
-HaiBo
+www.easysoftlab.com
 
 ---
 
