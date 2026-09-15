@@ -114,7 +114,7 @@ Nutzen Sie das Tool sofort in Ihrem Browser — keine Installation erforderlich.
 #### 🖥️ Microsoft Store Desktop-App
 Holen Sie sich die Desktop-Version aus dem Microsoft Store für eine native Windows-Oberfläche.
 
-[![Jetzt bei Microsoft erhalten](https://get.microsoft.com/images/de-de%20dark.svg)](https://www.microsoft.com/store/apps/)
+[![Get it from Microsoft](https://get.microsoft.com/images/en-us%20dark.svg)](https://apps.microsoft.com/detail/9nbx96s08ccq)
 
 > Ersetzen Sie den Link oben durch Ihre offizielle Microsoft Store Produkt-URL.
 
