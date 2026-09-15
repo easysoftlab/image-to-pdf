@@ -1,4 +1,4 @@
-# image-to-pdf
+# image to pdf
 
 > Free, offline, lossless image to PDF converter with batch processing. No uploads, no watermarks, works on every device.
 >
