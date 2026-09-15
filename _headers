@@ -1,0 +1,22 @@
+# Cloudflare Pages 响应头配置（构建时由 build-i18n.js 复制到 dist/）
+#
+# 注意：走「直接上传 dist」的部署方式时，名以 `_` 开头的文件容易被漏传，
+# 上传后务必用 `curl -I https://<域名>/css/style.css` 确认 Cache-Control 生效。
+
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: geolocation=(), microphone=(), camera=()
+
+# 带内容哈希版本号（?v=<hash>）的资源可以放心长缓存
+/css/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/js/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/sitemap.xml
+  Cache-Control: public, max-age=3600
+
+/robots.txt
+  Cache-Control: public, max-age=3600

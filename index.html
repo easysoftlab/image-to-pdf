@@ -1,1 +1,302 @@
+<!DOCTYPE html><html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Free Pictures to PDF Converter – Merge JPG &amp; PNG Offline</title>
+  <meta name="description" content="Free pictures to PDF converter right in your browser. Merge JPG, PNG, BMP, GIF or WEBP into one PDF offline — no sign-up, no upload, no quality loss.">
+  <meta name="theme-color" content="#DC2626">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+  <!-- favicon 内联为 SVG data URI：省一次请求，也避免 /favicon.ico 404 -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2032%2032'%3E%3Crect%20width='32'%20height='32'%20rx='7'%20fill='%23DC2626'/%3E%3Cpath%20d='M11%209h6.5L22%2013.5V23a2%202%200%200%201-2%202h-9a2%202%200%200%201-2-2V11a2%202%200%200%201%202-2z'%20fill='%23fff'/%3E%3Cpath%20d='M17.5%209v4.5H22'%20fill='none'%20stroke='%23DC2626'%20stroke-width='1.6'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="/css/style.css?v=01f33894">
+  <!-- 预加载 ES 模块依赖，消除模块解析瀑布，加快首屏 -->
+  <link rel="modulepreload" href="/js/eventBus.js?v=01f33894">
+  <link rel="modulepreload" href="/js/i18n.js?v=01f33894">
+  <link rel="modulepreload" href="/js/pdfEngine.js?v=01f33894">
+  <link rel="modulepreload" href="/js/imagePdfService.js?v=01f33894">
+  <link rel="modulepreload" href="/js/views/imageListView.js?v=01f33894">
+  <link rel="modulepreload" href="/js/views/settingsView.js?v=01f33894">
+  <link rel="modulepreload" href="/js/vendor/pdf-lib.min.js?v=01f33894">
+  <meta name="x-page-lang" content="en">
 
+  <link rel="alternate" hreflang="en" href="https://pictures-to-pdf.pages.dev/">
+  <link rel="alternate" hreflang="zh-CN" href="https://pictures-to-pdf.pages.dev/zh-CN/">
+  <link rel="alternate" hreflang="zh-TW" href="https://pictures-to-pdf.pages.dev/zh-TW/">
+  <link rel="alternate" hreflang="de" href="https://pictures-to-pdf.pages.dev/de/">
+  <link rel="alternate" hreflang="fr" href="https://pictures-to-pdf.pages.dev/fr/">
+  <link rel="alternate" hreflang="ja" href="https://pictures-to-pdf.pages.dev/ja/">
+  <link rel="alternate" hreflang="ko" href="https://pictures-to-pdf.pages.dev/ko/">
+  <link rel="alternate" hreflang="es" href="https://pictures-to-pdf.pages.dev/es/">
+  <link rel="alternate" hreflang="it" href="https://pictures-to-pdf.pages.dev/it/">
+  <link rel="alternate" hreflang="pt-BR" href="https://pictures-to-pdf.pages.dev/pt-BR/">
+  <link rel="alternate" hreflang="ru" href="https://pictures-to-pdf.pages.dev/ru/">
+  <link rel="alternate" hreflang="nl" href="https://pictures-to-pdf.pages.dev/nl/">
+  <link rel="alternate" hreflang="tr" href="https://pictures-to-pdf.pages.dev/tr/">
+  <link rel="alternate" hreflang="x-default" href="https://pictures-to-pdf.pages.dev/">
+  <link rel="canonical" href="https://pictures-to-pdf.pages.dev/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="PicturesToPDF">
+  <meta property="og:title" content="Free Pictures to PDF Converter – Merge JPG &amp; PNG Offline">
+  <meta property="og:description" content="Free pictures to PDF converter right in your browser. Merge JPG, PNG, BMP, GIF or WEBP into one PDF offline — no sign-up, no upload, no quality loss.">
+  <meta property="og:url" content="https://pictures-to-pdf.pages.dev/">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:locale:alternate" content="zh_CN">
+  <meta property="og:locale:alternate" content="zh_TW">
+  <meta property="og:locale:alternate" content="de_DE">
+  <meta property="og:locale:alternate" content="fr_FR">
+  <meta property="og:locale:alternate" content="ja_JP">
+  <meta property="og:locale:alternate" content="ko_KR">
+  <meta property="og:locale:alternate" content="es_ES">
+  <meta property="og:locale:alternate" content="it_IT">
+  <meta property="og:locale:alternate" content="pt_BR">
+  <meta property="og:locale:alternate" content="ru_RU">
+  <meta property="og:locale:alternate" content="nl_NL">
+  <meta property="og:locale:alternate" content="tr_TR">
+  <meta property="og:image" content="https://pictures-to-pdf.pages.dev/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Free Pictures to PDF Converter – Merge JPG &amp; PNG Offline">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Free Pictures to PDF Converter – Merge JPG &amp; PNG Offline">
+  <meta name="twitter:description" content="Free pictures to PDF converter right in your browser. Merge JPG, PNG, BMP, GIF or WEBP into one PDF offline — no sign-up, no upload, no quality loss.">
+  <meta name="twitter:image" content="https://pictures-to-pdf.pages.dev/og-image.jpg">
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","name":"Free Pictures to PDF Converter – Merge JPG & PNG Offline","description":"Free pictures to PDF converter right in your browser. Merge JPG, PNG, BMP, GIF or WEBP into one PDF offline — no sign-up, no upload, no quality loss.","url":"https://pictures-to-pdf.pages.dev/","inLanguage":"en","applicationCategory":"MultimediaApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD","availability":"https://schema.org/InStock"}},{"@type":"SoftwareApplication","name":"PicturesToPDF (Desktop)","operatingSystem":"Windows 10, Windows 11","applicationCategory":"MultimediaApplication","isAccessibleForFree":true,"installUrl":"https://apps.microsoft.com/detail/9nbx96s08ccq","offers":{"@type":"Offer","price":"0","priceCurrency":"USD","availability":"https://schema.org/InStock"}}]}</script>
+</head>
+<body>
+  <!-- 页面主标题：视觉隐藏，供搜索引擎与屏幕阅读器识别页面主题 -->
+  <h1 class="sr-only" data-i18n="seo.h1">Free Pictures to PDF Converter</h1>
+
+  <div id="app">
+    <!-- ===== 顶部标题栏 ===== -->
+    <header id="topbar">
+      <div class="brand">
+        <span class="brand-logo" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+            <polyline points="14 2 14 8 20 8"></polyline>
+            <path d="M8.5 13.5l2.2 2.2 4.3-4.6"></path>
+          </svg>
+        </span>
+        <span class="brand-text">
+          <span class="brand-title" data-i18n="app.title">PicturesToPDF-Powered by HaiBo</span>
+          <span class="brand-sub" data-i18n="app.subtitle">Offline · Lossless · Batch merge</span>
+        </span>
+      </div>
+
+      <div class="topbar-actions">
+        <!-- 语言菜单：真实 <a href="/xx/"> 链接由构建脚本静态写入，无 JS 也能被爬虫跟随 -->
+        <div class="lang-wrap" id="langWrap">
+          <button type="button" id="langBtn" class="lang-btn" data-i18n-attr="title" data-i18n="tb.language" title="Language" aria-haspopup="true">
+            <svg class="lang-icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="9"></circle>
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <path d="M12 3a15 15 0 0 1 0 18a15 15 0 0 1 0-18z"></path>
+            </svg>
+            <span id="langCurrent">English</span>
+            <span class="lang-caret" aria-hidden="true"></span>
+          </button>
+          <ul id="languageMenu" class="lang-menu">
+    <li data-lang="en" class="active"><a href="/" hreflang="en" class="lang-link active"><span class="mi-icon">✔</span><span>English</span></a></li>
+    <li data-lang="zh-CN"><a href="/zh-CN/" hreflang="zh-CN" class="lang-link"><span class="mi-icon"></span><span>简体中文</span></a></li>
+    <li data-lang="zh-TW"><a href="/zh-TW/" hreflang="zh-TW" class="lang-link"><span class="mi-icon"></span><span>繁體中文</span></a></li>
+    <li data-lang="de"><a href="/de/" hreflang="de" class="lang-link"><span class="mi-icon"></span><span>Deutsch</span></a></li>
+    <li data-lang="fr"><a href="/fr/" hreflang="fr" class="lang-link"><span class="mi-icon"></span><span>Français</span></a></li>
+    <li data-lang="ja"><a href="/ja/" hreflang="ja" class="lang-link"><span class="mi-icon"></span><span>日本語</span></a></li>
+    <li data-lang="ko"><a href="/ko/" hreflang="ko" class="lang-link"><span class="mi-icon"></span><span>한국어</span></a></li>
+    <li data-lang="es"><a href="/es/" hreflang="es" class="lang-link"><span class="mi-icon"></span><span>Español</span></a></li>
+    <li data-lang="it"><a href="/it/" hreflang="it" class="lang-link"><span class="mi-icon"></span><span>Italiano</span></a></li>
+    <li data-lang="pt-BR"><a href="/pt-BR/" hreflang="pt-BR" class="lang-link"><span class="mi-icon"></span><span>Português (BR)</span></a></li>
+    <li data-lang="ru"><a href="/ru/" hreflang="ru" class="lang-link"><span class="mi-icon"></span><span>Русский</span></a></li>
+    <li data-lang="nl"><a href="/nl/" hreflang="nl" class="lang-link"><span class="mi-icon"></span><span>Nederlands</span></a></li>
+    <li data-lang="tr"><a href="/tr/" hreflang="tr" class="lang-link"><span class="mi-icon"></span><span>Türkçe</span></a></li>
+  </ul>
+        </div>
+
+        <a class="ghost-btn link-btn" id="websiteLink" href="https://www.easysoftlab.com/pictures-to-pdf/" target="_blank" rel="noopener" data-i18n="menu.website">Website</a>
+        <button type="button" id="aboutBtn" class="ghost-btn" data-i18n="help.about">About</button>
+
+        <span class="store-hint" data-i18n="store.hint">Want the desktop app? Get it here →</span>
+        <div id="storeBadge" class="store-badge"><a href="https://apps.microsoft.com/detail/9nbx96s08ccq" target="_blank" rel="noopener" aria-label="Microsoft Store"><img src="https://get.microsoft.com/images/en-us%20dark.svg" alt="PicturesToPDF-Powered by HaiBo — Microsoft Store" width="120" height="40" loading="lazy"></a></div>
+      </div>
+    </header>
+
+    <!-- ===== 主工作区 ===== -->
+    <main id="workspace">
+      <!-- 左侧：拖放区 + 图片列表 -->
+      <section id="leftPane">
+        <div id="dropzone" class="dropzone">
+          <div class="dz-inner">
+            <div class="dz-icon">
+              <svg viewBox="0 0 24 24" width="42" height="42" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="3" width="18" height="18" rx="3"></rect>
+                <circle cx="8.5" cy="8.5" r="1.8"></circle>
+                <polyline points="21 15 16 10 5 21"></polyline>
+              </svg>
+            </div>
+            <div class="dz-title" data-i18n="dz.title">Drag &amp; drop images here</div>
+            <div class="dz-sub" data-i18n="dz.sub">Or use the buttons below — dozens of images at once</div>
+            <div class="dz-actions">
+              <button type="button" id="selectImagesBtn" class="primary-btn" data-i18n="dz.select">Select Images</button>
+              <button type="button" id="addFolderBtn" class="secondary-btn" data-i18n="dz.addFolder">Add Folder</button>
+            </div>
+            <div class="dz-hint" data-i18n="dz.hint">Supports JPG / JPEG / PNG / BMP / GIF / WEBP</div>
+          </div>
+        </div>
+
+        <div id="listSection" class="list-section">
+          <div class="list-header">
+            <div class="list-title">
+              <span data-i18n="list.title">Image List</span>
+              <span id="listCount" class="list-count">0</span>
+            </div>
+            <div class="list-tools">
+              <button type="button" id="sortAscBtn" class="mini-btn" data-i18n-attr="title" data-i18n="list.sortName" title="Sort by name">↕</button>
+              <button type="button" id="reverseBtn" class="mini-btn" data-i18n-attr="title" data-i18n="list.reverse" title="Reverse order">⇅</button>
+              <button type="button" id="clearBtn" class="mini-btn danger" data-i18n-attr="title" data-i18n="list.clear" title="Clear all">✕</button>
+            </div>
+          </div>
+          <div id="imageList" class="image-list"></div>
+          <div id="listEmpty" class="list-empty" data-i18n="list.empty">No images added yet</div>
+        </div>
+      </section>
+
+      <!-- 右侧：参数设置 -->
+      <aside id="settingsPanel">
+        <div class="panel-title" data-i18n="panel.settings">Conversion Settings</div>
+
+        <div class="field-group">
+          <label class="field-label" data-i18n="set.outputMode">Output Mode</label>
+          <div class="segmented" id="outputModeGroup">
+            <button type="button" class="seg-btn active" data-value="merge" data-i18n="set.merge">Merge into one PDF</button>
+            <button type="button" class="seg-btn" data-value="split" data-i18n="set.split">Separate PDF per image</button>
+          </div>
+        </div>
+
+        <div class="field-group">
+          <label class="field-label" for="pageSizeSelect" data-i18n="set.pageSize">Page Size</label>
+          <div class="select-wrap">
+            <select id="pageSizeSelect" class="field-select">
+              <option value="original" data-i18n="opt.original">Original size (sharpest)</option>
+              <option value="A4" data-i18n="opt.A4">A4 (210×297mm)</option>
+              <option value="A3" data-i18n="opt.A3">A3 (297×420mm)</option>
+              <option value="A5" data-i18n="opt.A5">A5 (148×210mm)</option>
+              <option value="Letter" data-i18n="opt.Letter">Letter (8.5×11in)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="field-group">
+          <label class="field-label" for="orientationSelect" data-i18n="set.orientation">Orientation</label>
+          <div class="select-wrap">
+            <select id="orientationSelect" class="field-select">
+              <option value="auto" data-i18n="opt.auto">Auto (match image)</option>
+              <option value="portrait" data-i18n="opt.portrait">Portrait</option>
+              <option value="landscape" data-i18n="opt.landscape">Landscape</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="field-group">
+          <label class="field-label" for="marginSelect" data-i18n="set.margin">Margins</label>
+          <div class="select-wrap">
+            <select id="marginSelect" class="field-select">
+              <option value="none" data-i18n="opt.marginNone">No margin</option>
+              <option value="narrow" data-i18n="opt.marginNarrow">Narrow (10mm)</option>
+              <option value="normal" data-i18n="opt.marginNormal" selected="">Normal (15mm)</option>
+              <option value="wide" data-i18n="opt.marginWide">Wide (25mm)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="field-group">
+          <label class="field-label" for="qualitySelect" data-i18n="set.quality">Image Quality</label>
+          <div class="select-wrap">
+            <select id="qualitySelect" class="field-select">
+              <option value="lossless" data-i18n="opt.qLossless" selected="">Lossless (keep original)</option>
+              <option value="high" data-i18n="opt.qHigh">High (slight compression, smaller)</option>
+              <option value="balanced" data-i18n="opt.qBalanced">Balanced</option>
+              <option value="compact" data-i18n="opt.qCompact">Compact (smallest)</option>
+            </select>
+          </div>
+          <div class="field-tip" data-i18n="set.qualityTip">Original JPG files are always embedded losslessly</div>
+        </div>
+
+        <div class="field-group">
+          <label class="field-label" for="outputNameInput" data-i18n="set.outputName">Output File Name</label>
+          <input type="text" id="outputNameInput" class="field-input" placeholder="output" data-i18n-attr="placeholder" data-i18n="set.outputNamePh">
+          <div class="field-tip" id="outputNameTip" data-i18n="set.nameTip">No need to type the .pdf extension</div>
+        </div>
+
+        <div class="field-group">
+          <label class="field-label" data-i18n="set.saveTo">Save Method</label>
+          <div class="save-note" data-i18n="set.saveTip">The web version cannot write to disk directly — finished PDFs are saved to your browser download folder.</div>
+        </div>
+
+        <div class="panel-note" data-i18n="panel.note">Everything runs locally in your browser. Your images are never uploaded.</div>
+      </aside>
+    </main>
+
+    <!-- ===== 底部操作栏 ===== -->
+    <footer id="bottombar">
+      <div class="summary">
+        <span id="summaryCount" data-i18n="sum.empty">No images selected</span>
+        <span class="dot-sep">·</span>
+        <span id="summarySize">0 MB</span>
+      </div>
+
+      <div class="progress-area" id="progressArea">
+        <div class="progress-meta">
+          <span id="progressText" class="progress-text"></span>
+          <span id="progressTimer" class="progress-timer"></span>
+        </div>
+        <div class="progress-track"><div id="progressFill" class="progress-fill"></div></div>
+      </div>
+
+      <div class="bottom-actions">
+        <button type="button" id="downloadBtn" class="secondary-btn hidden" data-i18n="act.download">Download PDF</button>
+        <button type="button" id="downloadAllBtn" class="secondary-btn hidden" data-i18n="act.downloadAll">Download all</button>
+        <button type="button" id="cancelBtn" class="danger-btn hidden" data-i18n="act.cancel">Cancel</button>
+        <button type="button" id="convertBtn" class="primary-btn lg" disabled="" data-i18n="act.convert">Convert</button>
+      </div>
+    </footer>
+  </div>
+
+  <!-- 隐藏文件输入（浏览器环境） -->
+  <input type="file" id="fileInput" accept=".jpg,.jpeg,.png,.bmp,.gif,.webp,image/jpeg,image/png,image/bmp,image/gif,image/webp" multiple="" style="display:none">
+  <input type="file" id="folderInput" webkitdirectory="" directory="" multiple="" style="display:none">
+
+  <!-- 关于对话框 -->
+  <div id="aboutDialog" class="modal-overlay" hidden="">
+    <div class="modal-box">
+      <button type="button" class="modal-close" id="aboutClose" aria-label="Close">✕</button>
+      <div class="about-head">
+        <div class="about-logo">
+          <svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+            <polyline points="14 2 14 8 20 8"></polyline>
+            <path d="M8.5 13.5l2.2 2.2 4.3-4.6"></path>
+          </svg>
+        </div>
+        <div class="about-title" data-i18n="app.title">PicturesToPDF-Powered by HaiBo</div>
+        <div class="about-version">v1.0.0</div>
+      </div>
+      <div class="about-body" id="aboutBody" data-i18n="dlg.about">Pictures to PDF
+Runs entirely in your browser — your files are never uploaded.
+Merge JPG, PNG, BMP, GIF and WEBP files into one PDF. Original JPGs are embedded losslessly without re-compression, and every page keeps the original aspect ratio with no stretching.</div>
+      <div class="about-contact">
+        <div class="contact-title">Contact</div>
+        <div>Business: <a href="mailto:easysoftlab@outlook.com">easysoftlab@outlook.com</a></div>
+      </div>
+      <div class="about-actions">
+        <button type="button" id="aboutOk" class="primary-btn" data-i18n="dlg.ok">OK</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast 提示 -->
+  <div id="toast" class="toast" hidden=""></div>
+
+  <script type="module" src="/js/main.js?v=01f33894"></script>
+
+
+</body></html>
