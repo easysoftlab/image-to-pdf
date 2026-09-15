@@ -130,4 +130,5 @@ Dieses Tool läuft vollständig clientseitig in Ihrem Webbrowser. **Keine Bilder
 - Dokumente für Druck und Austausch vorbereiten
 
 ### Entwickelt von
-HaiBo
+ 
+www.easysoftlab.com
