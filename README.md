@@ -50,7 +50,7 @@ Use the tool instantly in your browser — no installation needed.
 #### 🖥️ Microsoft Store Desktop App
 Get the desktop version from Microsoft Store for a native Windows experience.
 
-[![Get it from Microsoft](https://get.microsoft.com/images/en-us%20dark.svg)](https://www.microsoft.com/store/apps/)
+[![Get it from Microsoft](https://get.microsoft.com/images/en-us%20dark.svg)](https://apps.microsoft.com/detail/9nbx96s08ccq)
 
 > Replace the link above with your official Microsoft Store product URL.
 
